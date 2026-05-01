@@ -5,3 +5,12 @@ __pycache__/
 .env
 *.db
 .DS_Store
+
+
+# Frontend
+node_modules/
+dist/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

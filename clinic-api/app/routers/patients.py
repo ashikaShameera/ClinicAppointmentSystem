@@ -79,6 +79,24 @@ async def list_patients(
     )
 
 
+# GET /api/patients/me — returns the logged-in patient's own profile
+@router.get("/me", response_model=PatientResponse)
+async def get_my_profile(
+    db:           AsyncSession = Depends(get_db),
+    current_user: dict         = Depends(get_current_user),
+):
+    result = await db.execute(
+        select(Patient).where(
+            Patient.user_id   == uuid.UUID(current_user["sub"]),
+            Patient.deleted_at.is_(None)
+        )
+    )
+    patient = result.scalar_one_or_none()
+    if not patient:
+        raise HTTPException(status_code=404, detail="Patient profile not found")
+    return PatientResponse.model_validate(patient)
+
+
 # ── GET /api/patients/:id ────────────────────────────────────
 @router.get("/{patient_id}", response_model=PatientResponse)
 async def get_patient(
@@ -221,3 +239,5 @@ async def get_patient_appointments(
         per_page=per_page,
         appointments=[AppointmentResponse.model_validate(a) for a in rows]
     )
+
+
