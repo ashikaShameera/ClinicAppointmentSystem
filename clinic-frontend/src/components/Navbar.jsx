@@ -51,6 +51,7 @@ export default function Navbar() {
           <Link to="/"        className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link>
           <Link to="/about"   className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</Link>
           <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
+           
         </div>
 
         {/* Auth area */}

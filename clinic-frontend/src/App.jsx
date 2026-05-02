@@ -27,6 +27,10 @@ import AdminDoctors      from './pages/admin/DoctorsPage'
 import AdminAppointments from './pages/admin/AppointmentsPage'
 import AdminAnalytics    from './pages/admin/AnalyticsPage'
 
+
+import AdminUsers from './pages/admin/UsersPage'
+
+
 export default function App() {
   return (
     <AuthProvider>
@@ -67,6 +71,7 @@ export default function App() {
               <Route path="/admin/doctors"      element={<AdminDoctors />} />
               <Route path="/admin/appointments" element={<AdminAppointments />} />
               <Route path="/admin/analytics"    element={<AdminAnalytics />} />
+              <Route path="/admin/users" element={<AdminUsers />} />
             </Route>
 
           </Route>

@@ -9,6 +9,7 @@ from app.routers import (
     auth, patients, doctors,
     appointments, medical_records,
     reviews, notifications, analytics,
+    admin
 )
 
 
@@ -30,6 +31,8 @@ app.include_router(medical_records.router)
 app.include_router(reviews.router)
 app.include_router(notifications.router)
 app.include_router(analytics.router)
+app.include_router(admin.router)
+
 
 
 @app.get("/")

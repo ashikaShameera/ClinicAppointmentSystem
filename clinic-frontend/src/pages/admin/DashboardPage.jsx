@@ -91,13 +91,14 @@ export default function AdminDashboard() {
     { label: 'This month',          value: summary?.this_month           ?? '—', icon: '📆', bg: '#EEEDFE', color: '#3C3489', to: '/admin/appointments' },
     { label: 'Cancellation rate',   value: summary?.cancellation_rate_pct != null ? `${summary.cancellation_rate_pct}%` : '—', icon: '❌', bg: '#FCEBEB', color: '#791F1F', to: '/admin/analytics' },
     { label: 'Completion rate',     value: summary?.completion_rate_pct  != null ? `${summary.completion_rate_pct}%`  : '—', icon: '✅', bg: '#E1F5EE', color: '#085041', to: '/admin/analytics' },
+    { label: 'User accounts', icon: '🔐', to: '/admin/users', bg: '#FCEBEB' }
   ]
 
   return (
     <div style={pg}>
       <style>{css}</style>
       <Navbar />
-
+      
       <div style={wrap}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
